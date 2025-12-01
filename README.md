@@ -1,6 +1,6 @@
 # Licenční smlouva - Interaktivní hra
 
-Jednoduchá 2D plošinovka vytvořená jako seminární práce pro předmět právo. Hráč ovládá postavičku právníka, která sbírá svitky obsahující jednotlivé články licenční smlouvy pro fotobanku.
+Jednoduchá 2D plošinovka vytvořená jako seminární práce pro předmět Právo ICT - soukromoprávní. Hráč ovládá postavičku právníka, která sbírá svitky obsahující jednotlivé články licenční smlouvy pro fotobanku.
 
 ## Zadání
 
@@ -14,35 +14,32 @@ Připravit jednoduchou licenční smlouvu pro fotobanku, ze které bude uživate
 
 ## Spuštění
 
-Otevřít `index.html` v prohlížeči (vyžaduje internetové připojení pro načtení MelonJS knihovny).
+Otevřít https://katerinakralova.github.io/hra-licencni-smlouva/
 
 ## Ovládání
 
-- **←→** nebo **A/D** - pohyb
-- **↑/W/Mezerník** - skok (dvojitý skok možný)
-- **↓/S** - dřep / propadnutí platformou
+- **←→** - pohyb
+- **↑** - skok (dvojitý skok možný)
+- **↓** - dřep / propadnutí platformou
 
 ## Použité nástroje
 
 - **MelonJS 17** - herní engine
-- **Claude AI** - asistence při vývoji
-- **Vlastní grafika** - sprite postavy
+- **Claude AI** - generování kódu 
+- **ChatGPT** - generování grafiky
 
 ## Struktura projektu
 
 ```
 ├── index.html          # Hlavní HTML soubor
 ├── main.js             # Vstupní bod hry
-├── img/                # Obrázky (sprite postavy)
 └── js/
     ├── entities/
     │   ├── player.js   # Logika hráče
     │   ├── platform.js # Platformy
     │   └── scroll.js   # Sbíratelné svitky s textem
+    ├── img/            # Obrázky (sprite postavy)
     └── screens/
         └── play.js     # Herní obrazovka a level
 ```
 
-## Licence
-
-Seminární práce - pouze pro vzdělávací účely.
