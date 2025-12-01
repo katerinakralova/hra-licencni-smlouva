@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Licenční smlouva - Hra</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Georgia', serif;
+    }
+    #screen {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #screen canvas {
+      border-radius: 8px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    }
+    #instructions {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #FFD700;
+      font-size: 14px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 10px 20px;
+      border-radius: 8px;
+      z-index: 100;
+    }
+    #instructions kbd {
+      background: #333;
+      padding: 2px 6px;
+      border-radius: 3px;
+      border: 1px solid #555;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <div id="screen"></div>
+  <div id="instructions">
+    <strong>Ovládání:</strong>
+    <kbd>←</kbd> <kbd>→</kbd> nebo <kbd>A</kbd> <kbd>D</kbd> pohyb |
+    <kbd>↑</kbd> <kbd>W</kbd> <kbd>Mezerník</kbd> skok |
+    <kbd>↓</kbd> <kbd>S</kbd> dřep / propadnutí platformou
+  </div>
+  <script>
+    // Hide instructions after player starts moving
+    let keyPressCount = 0;
+    const instructions = document.getElementById('instructions');
+
+    document.addEventListener('keydown', function(e) {
+      if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'KeyA', 'KeyD', 'KeyW', 'KeyS', 'Space'].includes(e.code)) {
+        keyPressCount++;
+        if (keyPressCount > 10) {
+          instructions.style.transition = 'opacity 1s';
+          instructions.style.opacity = '0';
+          setTimeout(() => { instructions.style.display = 'none'; }, 1000);
+        }
+      }
+    });
+  </script>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
